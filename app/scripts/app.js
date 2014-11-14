@@ -13,7 +13,8 @@ angular
     'ngAnimate',
     'ngAria',
     'ngRoute',
-    'ngTouch'
+    'ngTouch',
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
