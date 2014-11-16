@@ -9,9 +9,29 @@
  */
 angular.module('stickyNotesApp')
   .controller('NotesCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+    console.log('test');
+    $scope.hello = "test";
+    $scope.notes = [
+      {
+        text: "Note 1",
+        position: {
+          x: 50,
+          y: 150
+        }
+      },
+      {
+        text: "Note 2",
+        position: {
+          x: 150,
+          y: 50
+        }
+      }
     ];
+
+    $scope.style = function (note) {
+      return {
+        left: note.position.x + 'px',
+        top: note.position.y + 'px'
+      };
+    };
   });
