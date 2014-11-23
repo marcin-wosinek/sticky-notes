@@ -8,8 +8,9 @@
  * Controller of the stickyNotesApp
  */
 angular.module('stickyNotesApp')
-  .controller('AddCtrl', function ($scope, $location) {
+  .controller('AddCtrl', function ($scope, $location, notesStorage) {
     $scope.add = function (note) {
+      notesStorage.add(note);
       $location.path('/notes');
     };
 

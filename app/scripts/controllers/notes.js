@@ -9,7 +9,7 @@
  */
 angular.module('stickyNotesApp')
   .controller('NotesCtrl', function ($scope) {
-    console.log('test');
+
     $scope.hello = "test";
     $scope.notes = [
       {

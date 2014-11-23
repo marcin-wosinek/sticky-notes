@@ -23,10 +23,10 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <md-toolbar>
-        <md-button ng-href="#">Home</md-button>
-        <md-button ng-href="#/about">About</md-button>
-        <md-button ng-href="#/notes">Notes</md-button>
-        <md-button ng-href="#/add">Add</md-button>
+        <md-button ng-href="#" aria-label="Home link">Home</md-button>
+        <md-button ng-href="#/about" aria-label="About link">About</md-button>
+        <md-button ng-href="#/notes" aria-label="Note link">Notes</md-button>
+        <md-button ng-href="#/add" aria-label="Add link">Add</md-button>
         <h1>Sticky notes</h1>
       </md-toolbar>
 
@@ -54,6 +54,8 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -63,6 +65,7 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/notes.js"></script>
         <script src="scripts/controllers/add.js"></script>
+        <script src="scripts/services/notesstorage.js"></script>
         <!-- endbuild -->
 </body>
 </html>
