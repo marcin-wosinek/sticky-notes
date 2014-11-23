@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: AboutCtrl', function () {
+describe('Controller: ListCtrl', function () {
 
   // load the controller's module
   beforeEach(module('stickyNotesApp'));
 
-  var AboutCtrl,
+  var ListCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    AboutCtrl = $controller('AboutCtrl', {
+    ListCtrl = $controller('ListCtrl', {
       $scope: scope
     });
   }));

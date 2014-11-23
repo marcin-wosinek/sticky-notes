@@ -1,0 +1,15 @@
+<md-list>
+  <md-item ng-repeat="note in notes">
+    <md-item-content>
+      <div class="md-tile-left">
+        Note {{$index + 1}}
+      </div>
+      <div class="md-tile-content">
+        <h3>{{note.title}}</h3>
+        <p>
+          {{note.description}}
+        </p>
+      </div>
+    </md-item-content>
+  </md-item>
+</md-list>
