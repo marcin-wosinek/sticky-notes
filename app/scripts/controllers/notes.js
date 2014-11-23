@@ -8,25 +8,10 @@
  * Controller of the stickyNotesApp
  */
 angular.module('stickyNotesApp')
-  .controller('NotesCtrl', function ($scope) {
+  .controller('NotesCtrl', function ($scope, notesStorage) {
 
     $scope.hello = "test";
-    $scope.notes = [
-      {
-        text: "Note 1",
-        position: {
-          x: 50,
-          y: 150
-        }
-      },
-      {
-        text: "Note 2",
-        position: {
-          x: 150,
-          y: 50
-        }
-      }
-    ];
+    $scope.notes = notesStorage.getAll();
 
     $scope.style = function (note) {
       return {

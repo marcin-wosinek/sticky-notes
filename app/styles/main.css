@@ -6,7 +6,7 @@
 .note {
   display: block;
   position: absolute;
-  width: 100px;
-  height: 50px;
+  width: 250px;
+  min-height: 50px;
   padding: 10px;
 }
