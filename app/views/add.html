@@ -1,0 +1,19 @@
+<form>
+  <md-text-float label="Title" ng-model="note.title"></md-text-float>
+  <md-text-float label="Description" ng-model="note.description"></md-text-float>
+
+  <md-radio-group ng-model="note.color">
+    <md-radio-button value="white" aria-label="White">White</md-radio-button>
+    <md-radio-button value="green" aria-label="Green">Green</md-radio-button>
+    <md-radio-button value="pink" aria-label="Pink">Pink</md-radio-button>
+  <md-radio-group>
+
+  <md-checkbox ng-model="note.date" aria-label="Due date">
+    Due date
+  </md-checkbox>
+  <md-text-float label="Due date" type="date" ng-model="note.dateValue" ng-disabled="{{!note.date}}"></md-text-float>
+
+  <md-button ng-click="add(note)" class="md-raised md-primary">Add</md-button>
+  <md-button ng-click="reset(note)" class="md-raised">Reset</md-button>
+  <md-button ng-click="cancel()" class="md-raised md-warn">Cancel</md-button>
+</form>
