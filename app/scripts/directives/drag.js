@@ -3,6 +3,10 @@ angular.module('stickyNotesApp').directive('drag', function($document){
   return {
     restrict: 'EA',
     replace: true,
+    scope: {
+      onDrag: '&',
+      onDrop: '&'
+    },
     link: function(scope, element, attr) {
       // variable representing board where sticky notes can be put
       // disable drag when user is trying to put them outside of board
@@ -32,12 +36,14 @@ angular.module('stickyNotesApp').directive('drag', function($document){
 
       element.on('mousedown', function(event) {
         // Prevent default dragging of selected content
-        var target = angular.element(event.target);
-          event.preventDefault();
-          startX = event.pageX - (element.css('left').replace('px','') || note.x);
-          startY = event.pageY - (element.css('top').replace('px','') || note.y);
-          $document.on('mousemove', mousemove);
-          $document.on('mouseup', mouseup);
+        event.preventDefault();
+
+        startX = event.pageX - (element.css('left').replace('px','') || note.x);
+        startY = event.pageY - (element.css('top').replace('px','') || note.y);
+        $document.on('mousemove', mousemove);
+        $document.on('mouseup', mouseup);
+
+        scope.$apply(scope.onDrag());
       });
 
       function mousemove(event) {
@@ -50,9 +56,11 @@ angular.module('stickyNotesApp').directive('drag', function($document){
           });
         }
       }
+
       function mouseup() {
         $document.unbind('mousemove', mousemove);
         $document.unbind('mouseup', mouseup);
+        scope.$apply(scope.onDrop());
       }
     }
   };

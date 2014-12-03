@@ -1,18 +1,19 @@
 .workspace {
-  position: relative;
   height: 300px;
+  position: relative;
 }
 
 .note {
+  background-color: #fff;
   display: block;
-  position: absolute;
-  width: 250px;
   min-height: 50px;
   padding: 10px;
+  position: absolute;
+  width: 250px;
 }
 
 .board{
-  width:1000px;
-  height:800px;
   background-color: rgba(232, 216, 181, 0.55);
+  height:800px;
+  width:1000px;
 }

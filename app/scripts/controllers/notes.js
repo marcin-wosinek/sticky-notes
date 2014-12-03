@@ -6,6 +6,8 @@
  * @description
  * # NotesCtrl
  * Controller of the stickyNotesApp
+ *
+ * TODO rename to BoardCtrl?
  */
 angular.module('stickyNotesApp')
   .controller('NotesCtrl', function ($scope, notesStorage) {
@@ -23,5 +25,13 @@ angular.module('stickyNotesApp')
         left: note.position.x + 'px',
         top: note.position.y + 'px'
       };
+    };
+
+    $scope.drag = function (note) {
+      note._dragged = true;
+    };
+
+    $scope.drop = function (note) {
+      delete note._dragged;
     };
   });
