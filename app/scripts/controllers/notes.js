@@ -14,6 +14,11 @@ angular.module('stickyNotesApp')
     $scope.notes = notesStorage.getAll();
 
     $scope.style = function (note) {
+      if(angular.isUndefined(note)){
+        note = {position:{}};
+        note.position.x = 0;
+        note.position.y = 0;
+      }
       return {
         left: note.position.x + 'px',
         top: note.position.y + 'px'

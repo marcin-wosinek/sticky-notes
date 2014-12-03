@@ -10,3 +10,9 @@
   min-height: 50px;
   padding: 10px;
 }
+
+.board{
+  width:1000px;
+  height:800px;
+  background-color: rgba(232, 216, 181, 0.55);
+}

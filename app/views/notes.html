@@ -1,6 +1,8 @@
 <div class="workspace">
-  <div class="note md-whiteframe-z1" ng-style="style(note)" ng-repeat="note in notes">
-    <h3>{{note.title}}</h3>
-    {{note.description}}
+  <div class="board">
+    <div  drag class="note md-whiteframe-z1"  ng-style="style()" ng-repeat="note in notes" >
+      <h3>{{note.title}}</h3>
+      {{note.description}}
+    </div>
   </div>
 </div>
