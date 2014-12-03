@@ -1,13 +1,14 @@
 <div class="workspace">
   <div class="board">
     <div drag class="note"
-        on-drag="drag(note)" on-drop="drop(note)"
+        on-drag="drag(note)" on-move="move(note, deltaX, deltaY)" on-drop="drop(note)"
         ng-style="style()" ng-class="{'md-whiteframe-z1': !note._dragged, 'md-whiteframe-z2': note._dragged}"
         ng-repeat="note in notes">
       <h3>{{note.title}}</h3>
       {{note.description}}
 
       <small>[{{note.position.x}}, {{note.position.y}}]</small>
+      <button ng-click="remove(notes, note)">Remove</button>
     </div>
   </div>
 </div>
