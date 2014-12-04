@@ -47,4 +47,7 @@ angular.module('stickyNotesApp')
       note.position.y += y;
       console.log('x = ' + x + ', y = ' + y);
     };
+    $scope.edit = function(id){
+
+    }
   });

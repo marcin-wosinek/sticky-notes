@@ -31,6 +31,10 @@ angular
         templateUrl: 'views/list.html',
         controller: 'ListCtrl'
       })
+      .when('/edit/:id', {
+        templateUrl: 'views/edit.html',
+        controller: 'EditCtrl'
+      })
       .otherwise({
         redirectTo: '/notes'
       });

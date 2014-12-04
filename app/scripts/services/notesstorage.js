@@ -20,6 +20,12 @@ angular.module('stickyNotesApp')
       },
       getAll: function () {
         return storage.notes;
+      },
+      get: function(id){
+        return storage.notes[id];
+      },
+      set: function(id, note){
+        storage.notes[id] = note;
       }
     };
   });
