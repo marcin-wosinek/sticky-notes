@@ -43,9 +43,18 @@ angular.module('stickyNotesApp')
     };
 
     $scope.move = function (note, x, y) {
+      // TODO migrate to some point math utility
       note.position.x += x;
       note.position.y += y;
-      console.log('x = ' + x + ', y = ' + y);
+
+      // TODO migrate to some point math utility
+      if (note.position.x < 0) {
+        note.position.x = 0;
+      }
+
+      if (note.position.y < 0) {
+        note.position.y = 0;
+      }
     };
     $scope.edit = function(id){
 
