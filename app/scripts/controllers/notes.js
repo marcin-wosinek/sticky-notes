@@ -7,10 +7,13 @@
  * # NotesCtrl
  * Controller of the stickyNotesApp
  *
- * TODO rename to BoardCtrl?
+ * TODO #4 rename to BoardCtrl
  */
 angular.module('stickyNotesApp')
   .controller('NotesCtrl', function ($scope, notesStorage) {
+
+    var NOTE_WIDTH = 250,
+      NOTE_HEIGHT = 150;
 
     $scope.hello = "test";
     $scope.notes = notesStorage.getAll();
@@ -42,7 +45,7 @@ angular.module('stickyNotesApp')
       delete note._dragged;
     };
 
-    $scope.move = function (note, x, y) {
+    $scope.move = function (note, x, y, boardSize) {
       // TODO migrate to some point math utility
       note.position.x += x;
       note.position.y += y;
@@ -55,8 +58,21 @@ angular.module('stickyNotesApp')
       if (note.position.y < 0) {
         note.position.y = 0;
       }
-    };
-    $scope.edit = function(id){
 
-    }
+      if (note.position.x < 0) {
+        note.position.x = 0;
+      }
+
+      if (note.position.y < 0) {
+        note.position.y = 0;
+      }
+
+      if (note.position.x > boardSize.x - NOTE_WIDTH) {
+        note.position.x = boardSize.x - NOTE_WIDTH;
+      }
+
+      if (note.position.y > boardSize.y - NOTE_HEIGHT) {
+        note.position.y = boardSize.y - NOTE_HEIGHT;
+      }
+    };
   });

@@ -1,6 +1,7 @@
-<div class="workspace">
+<div class="workspace" sn-dimensions="boardSize">
+  {{boardSize}}
   <div drag class="note"
-      on-drag="drag(note)" on-move="move(note, deltaX, deltaY)" on-drop="drop(note)"
+      on-drag="drag(note)" on-move="move(note, deltaX, deltaY, boardSize)" on-drop="drop(note)"
       ng-style="style(note)" ng-class="{'md-whiteframe-z1': !note._dragged, 'md-whiteframe-z2': note._dragged}"
       ng-repeat="note in notes">
     <h3>{{note.title}}</h3>
