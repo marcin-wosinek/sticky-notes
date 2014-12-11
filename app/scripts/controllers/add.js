@@ -22,7 +22,7 @@ angular.module('stickyNotesApp')
 
     $scope.add = function (note) {
       notesStorage.add(note);
-      $location.path('/notes');
+      $location.path('/board');
     };
 
     $scope.reset = function (note) {
@@ -30,6 +30,6 @@ angular.module('stickyNotesApp')
     };
 
     $scope.cancel = function () {
-      $location.path('/notes');
+      $location.path('/board');
     };
   });

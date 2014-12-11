@@ -19,9 +19,9 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/notes', {
-        templateUrl: 'views/notes.html',
-        controller: 'NotesCtrl'
+      .when('/board', {
+        templateUrl: 'views/board.html',
+        controller: 'BoardCtrl'
       })
       .when('/add', {
         templateUrl: 'views/add.html',
@@ -36,6 +36,6 @@ angular
         controller: 'EditCtrl'
       })
       .otherwise({
-        redirectTo: '/notes'
+        redirectTo: '/board'
       });
   });

@@ -2,15 +2,14 @@
 
 /**
  * @ngdoc function
- * @name stickyNotesApp.controller:NotesCtrl
+ * @name stickyNotesApp.controller:BoardCtrl
  * @description
- * # NotesCtrl
- * Controller of the stickyNotesApp
- *
- * TODO #4 rename to BoardCtrl
+ * # BoardCtrl
+ * Main controller of the stickyNotesApp. Diplays notes at board and manage
+ * their interactions.
  */
 angular.module('stickyNotesApp')
-  .controller('NotesCtrl', function ($scope, $mdToast, notesStorage) {
+  .controller('BoardCtrl', function ($scope, $mdToast, notesStorage) {
 
     var NOTE_WIDTH = 250,
       NOTE_HEIGHT = 150;
