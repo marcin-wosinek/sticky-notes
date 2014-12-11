@@ -10,7 +10,7 @@
  * TODO #4 rename to BoardCtrl
  */
 angular.module('stickyNotesApp')
-  .controller('NotesCtrl', function ($scope, notesStorage) {
+  .controller('NotesCtrl', function ($scope, $mdToast, notesStorage) {
 
     var NOTE_WIDTH = 250,
       NOTE_HEIGHT = 150;
@@ -30,10 +30,22 @@ angular.module('stickyNotesApp')
     };
 
     $scope.remove = function (notes, note) {
-      var index = notes.indexOf(note);
+      var removed,
+        index = notes.indexOf(note);
 
       if (index > -1) {
+        removed = notes[index];
+
         notes.splice(index, 1);
+
+        $mdToast.show({
+          controller: 'RemovedToastCtrl',
+          templateUrl: 'views/removed-toast.html',
+          hideDelay: 6000,
+          locals: {
+            removedNote: removed
+          }
+        });
       }
     };
 
