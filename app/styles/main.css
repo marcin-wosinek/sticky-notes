@@ -24,3 +24,11 @@ md-toolbar {
 .md-whiteframe-z2 {
   z-index: 20;
 }
+
+.green {
+  background-color: #a5d6a7;
+}
+
+.pink {
+  background-color: #f48fb1;
+}
