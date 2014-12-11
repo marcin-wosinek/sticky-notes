@@ -11,9 +11,6 @@
 angular.module('stickyNotesApp')
   .controller('BoardCtrl', function ($scope, $mdToast, notesStorage) {
 
-    var NOTE_WIDTH = 250,
-      NOTE_HEIGHT = 150;
-
     $scope.hello = "test";
     $scope.notes = notesStorage.getAll();
 
@@ -78,12 +75,12 @@ angular.module('stickyNotesApp')
         note.position.y = 0;
       }
 
-      if (note.position.x > boardSize.x - NOTE_WIDTH) {
-        note.position.x = boardSize.x - NOTE_WIDTH;
+      if (note.position.x > boardSize.x - note._dimensions.x) {
+        note.position.x = boardSize.x - note._dimensions.x;
       }
 
-      if (note.position.y > boardSize.y - NOTE_HEIGHT) {
-        note.position.y = boardSize.y - NOTE_HEIGHT;
+      if (note.position.y > boardSize.y - note._dimensions.y) {
+        note.position.y = boardSize.y - note._dimensions.y;
       }
     };
   });

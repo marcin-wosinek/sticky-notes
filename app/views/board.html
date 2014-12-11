@@ -1,6 +1,7 @@
 <div class="workspace" sn-dimensions="boardSize">
   {{boardSize}}
   <div drag class="note"
+      sn-dimensions="note._dimensions"
       on-drag="drag(note)" on-move="move(note, deltaX, deltaY, boardSize)" on-drop="drop(note)"
       ng-style="style(note)"
       ng-class="{'md-whiteframe-z1': !note._dragged, 'md-whiteframe-z2': note._dragged, '{{note.color}}': true}"
@@ -9,6 +10,7 @@
     {{note.description}}
 
     <br/>
+    <small>[{{note._dimensions.x}}, {{note._dimensions.y}}]</small>
     <small>[{{note.position.x}}, {{note.position.y}}]</small>
     <button ng-click="remove(notes, note)">Remove</button>
     <a ng-href="#/edit/{{$index}}"> <button >Edit</button></a>
