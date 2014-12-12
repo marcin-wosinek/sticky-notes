@@ -17,6 +17,10 @@ md-toolbar {
   width: 250px;
 }
 
+md-icon {
+  width: 24px;
+}
+
 .md-whiteframe-z1 {
   z-index: 10;
 }

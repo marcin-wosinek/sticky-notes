@@ -12,7 +12,11 @@
     <br/>
     <small>[{{note._dimensions.x}}, {{note._dimensions.y}}]</small>
     <small>[{{note.position.x}}, {{note.position.y}}]</small>
-    <button ng-click="remove(notes, note)">Remove</button>
-    <a ng-href="#/edit/{{$index}}"> <button >Edit</button></a>
+    <md-button ng-click="remove(notes, note)">
+      <md-icon icon="/images/clear5.svg">Remove</md-icon>
+    </md-button>
+    <md-button ng-href="#/edit/{{$index}}">
+      <md-icon icon="/images/create3.svg">Edit</md-icon>
+    </md-button>
   </div>
 </div>
