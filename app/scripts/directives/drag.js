@@ -1,15 +1,14 @@
-angular.module('stickyNotesApp').directive('drag', function($document){
+angular.module('stickyNotesApp').directive('drag', function ($document, $parse) {
   'use strict';
   return {
     restrict: 'EA',
     replace: true,
-    scope: {
-      onDrag: '&',
-      onDrop: '&',
-      onMove: '&'
-    },
-    link: function(scope, element, attr) {
+    link: function(scope, element, attrs) {
       var startX, startY, x, y;
+
+      var onDrag = $parse(attrs.onDrag),
+        onDrop = $parse(attrs.onDrop),
+        onMove = $parse(attrs.onMove);
 
       element.on('mousedown', function(event) {
         // Prevent default dragging of selected content
@@ -20,7 +19,9 @@ angular.module('stickyNotesApp').directive('drag', function($document){
         $document.on('mousemove', mousemove);
         $document.on('mouseup', mouseup);
 
-        scope.$apply(scope.onDrag());
+        scope.$apply(function() {
+          onDrag(scope);
+        });
       });
 
       function mousemove(event) {
@@ -31,14 +32,16 @@ angular.module('stickyNotesApp').directive('drag', function($document){
           startX = event.pageX;
           startY = event.pageY;
 
-          scope.onMove({deltaX: x, deltaY: y});
+          onMove(scope, {deltaX: x, deltaY: y});
         });
       }
 
       function mouseup() {
         $document.unbind('mousemove', mousemove);
         $document.unbind('mouseup', mouseup);
-        scope.$apply(scope.onDrop());
+        scope.$apply(function () {
+          onDrop(scope);
+        });
       }
     }
   };
