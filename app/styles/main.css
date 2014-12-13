@@ -1,9 +1,28 @@
+/* structure */
+html, body {
+  min-height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+[ng-view] {
+  flex-grow: 1;
+}
+
+.workspace {
+  min-height: 100%;
+}
+
+/* layout */
 md-toolbar {
   z-index: 100;
 }
 
 .workspace {
-  height: 300px;
   position: relative;
   background-color: rgba(232, 216, 181, 0.55);
 }
@@ -11,10 +30,26 @@ md-toolbar {
 .note {
   background-color: #fff;
   display: block;
-  min-height: 150px;
   padding: 10px;
   position: absolute;
   width: 250px;
+}
+
+.note h3 {
+  margin-top: 0;
+}
+
+.note .md-button {
+  position: absolute;
+  top: 0;
+}
+
+.note .remove {
+  right: 0;
+}
+
+.note .edit {
+  right: 2.5rem;
 }
 
 md-icon {

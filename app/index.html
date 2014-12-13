@@ -17,23 +17,18 @@
   </head>
   <body ng-app="stickyNotesApp">
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
     <div class="container">
       <md-toolbar>
+        <h1>Sticky notes</h1>
         <md-button ng-href="#/board" aria-label="Note link">Notes board</md-button>
         <md-button ng-href="#/list" aria-label="List link">List</md-button>
         <md-button ng-href="#/add" aria-label="Add link">Add</md-button>
-        <h1>Sticky notes</h1>
       </md-toolbar>
-
       <div ng-view=""></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
     </div>
 
     <!-- build:js(.) scripts/oldieshim.js -->
@@ -56,16 +51,16 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/board.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/board.js"></script>
     <script src="scripts/controllers/add.js"></script>
     <script src="scripts/controllers/edit.js"></script>
-        <script src="scripts/services/notesstorage.js"></script>
+    <script src="scripts/services/notesstorage.js"></script>
     <script src="scripts/controllers/list.js"></script>
     <script src="scripts/directives/drag.js"></script>
-        <script src="scripts/directives/sn-dimensions.js"></script>
-        <script src="scripts/controllers/removed-toast.js"></script>
-        <!-- endbuild -->
-</body>
+    <script src="scripts/directives/sn-dimensions.js"></script>
+    <script src="scripts/controllers/removed-toast.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>
