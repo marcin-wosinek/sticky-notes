@@ -22,11 +22,11 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <md-toolbar>
+      <md-toolbar class="md-whiteframe-z1">
         <h1>Sticky notes</h1>
         <md-button ng-href="#/board" aria-label="Note link">Notes board</md-button>
         <md-button ng-href="#/list" aria-label="List link">List</md-button>
-        <md-button ng-href="#/add" aria-label="Add link">Add</md-button>
+        <md-button ng-href="#/add" class="md-fab" aria-label="Add link"><md-icon icon="/images/add180.svg">Add</md-icon></md-button>
       </md-toolbar>
       <div ng-view=""></div>
     </div>

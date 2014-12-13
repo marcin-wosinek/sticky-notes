@@ -19,7 +19,18 @@ html, body {
 
 /* layout */
 md-toolbar {
-  z-index: 100;
+}
+
+.md-button.md-default-theme.md-fab {
+  background: #ffeb3b;
+  position: relative;
+  top: 28px;
+  left: 28px;
+  z-index: 30;
+}
+
+.md-button.md-default-theme.md-fab:hover:not([disabled]) {
+  background: #fdd835;
 }
 
 .workspace {
