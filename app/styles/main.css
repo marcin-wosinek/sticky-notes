@@ -19,6 +19,13 @@ html, body {
 
 /* layout */
 md-toolbar {
+  position: relative;
+}
+
+.md-button.settings {
+  position: absolute;
+  top: 28px;
+  right: 28px;
 }
 
 .md-button.md-default-theme.md-fab {
@@ -81,4 +88,12 @@ md-icon {
 
 .pink {
   background-color: #f48fb1;
+}
+
+md-bottom-sheet {
+  z-index: 40;
+}
+
+md-backdrop {
+  z-index: 35;
 }
