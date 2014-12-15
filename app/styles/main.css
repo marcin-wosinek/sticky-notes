@@ -53,6 +53,17 @@ md-toolbar {
   width: 250px;
 }
 
+.square{
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.sliderdemoBasicUsage input[type="number"] {
+  text-align: center;
+}
+
 .note h3 {
   margin-top: 0;
 }
