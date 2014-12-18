@@ -10,11 +10,13 @@ html, body {
 }
 
 [ng-view] {
+  display: flex;
   flex-grow: 1;
 }
 
 .workspace {
   min-height: 100%;
+  flex-grow: 1;
 }
 
 /* layout */
