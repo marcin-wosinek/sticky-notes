@@ -11,7 +11,7 @@ describe('Service: notesStorage', function () {
     notesStorage = _notesStorage_;
   }));
 
-  it('should do something', function () {
+  xit('should do something', function () {
     expect(!!notesStorage).toBe(true);
   });
 
