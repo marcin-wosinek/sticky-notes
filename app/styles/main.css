@@ -9,13 +9,27 @@ html, body {
   height: 100%;
 }
 
+.list.container,
+.auto.container,
+.edit.container {
+  height: auto;
+}
+
 [ng-view] {
   display: flex;
   flex-grow: 1;
 }
 
+.board [ng-view] {
+  display: flex;
+}
+
 .workspace {
   min-height: 100%;
+  flex-grow: 1;
+}
+
+.board .workspace {
   flex-grow: 1;
 }
 

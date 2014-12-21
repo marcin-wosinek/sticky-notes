@@ -11,7 +11,7 @@
  * the size at 4 different moments.
  */
 angular.module('stickyNotesApp')
-  .directive('snDimensions', function ($window, $parse, $timeout) {
+  .directive('snDimensions', function ($window, $parse, $timeout, dimensionDelay) {
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
@@ -34,7 +34,7 @@ angular.module('stickyNotesApp')
 
         // Timeout with 0 will run function *after current* digest cycle - ie when all values
         // are bind to their location.
-        $timeout(setDimensions, 0);
+        $timeout(setDimensions, dimensionDelay);
 
         // When window is resized, we check the size again
         $window.onresize = function() {
