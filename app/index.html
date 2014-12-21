@@ -27,7 +27,7 @@
         <md-button class="settings" ng-click="openSettings()" aria-label="Open settings"><md-icon icon="./images/ic_menu_24px.svg">Settings</md-icon></md-button>
         <md-button ng-href="#/board" aria-label="Note link">Notes board</md-button>
         <md-button ng-href="#/list" aria-label="List link">List</md-button>
-        <md-button ng-href="#/add" class="md-fab" aria-label="Add link"><md-icon icon="./images/add180.svg">Add</md-icon></md-button>
+        <md-button ng-href="#/add" class="md-fab" aria-label="Add link" ng-if="route != 'add'"><md-icon icon="./images/add180.svg">Add</md-icon></md-button>
       </md-toolbar>
       <div ng-view=""></div>
     </div>
