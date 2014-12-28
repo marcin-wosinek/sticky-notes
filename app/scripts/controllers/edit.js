@@ -13,7 +13,7 @@ angular.module('stickyNotesApp')
     $scope.note = {}
 
     angular.copy(notesStorage.get(id),$scope.note);
-    $scope.update = function () {
+    $scope.done = function () {
       notesStorage.set(id, $scope.note);
       $location.path('/board');
     };

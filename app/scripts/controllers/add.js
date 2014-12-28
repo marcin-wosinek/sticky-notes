@@ -20,7 +20,7 @@ angular.module('stickyNotesApp')
 
     $scope.note = angular.copy(emptyNote);
     $scope.note.color = '#FFFFFF';
-    $scope.add = function (note) {
+    $scope.done = function (note) {
       notesStorage.add(note);
       $location.path('/board');
     };
