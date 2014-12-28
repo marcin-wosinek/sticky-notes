@@ -1,0 +1,37 @@
+<form> <div class="note square md-whiteframe-z1" ng-style="{'background-color': note.color}"> <md-text-float label="Title" ng-model="note.title"></md-text-float> <md-text-float label="Description" ng-model="note.description"></md-text-float> </div> <md-radio-group ng-model="note.color"> <md-radio-button value="White" aria-label="White">White</md-radio-button> <md-radio-button value="Green" aria-label="Green">Green</md-radio-button> <md-radio-button value="Pink" aria-label="Pink">Pink</md-radio-button> <md-radio-group> Custom color: <md-input-group class="md-default-theme"> <md-input type="color" ng-model="note.color"></md-input> </md-input-group> <md-checkbox ng-model="note.date" aria-label="Due date"> Due date </md-checkbox> <md-text-float label="Due date" type="date" ng-model="note.dateValue"></md-text-float> <md-button ng-click="done(note)" class="md-raised md-primary" aria-label="Add">Done</md-button> <md-button ng-click="reset(note)" class="md-raised" aria-label="Reset">Reset</md-button> <md-button ng-click="cancel()" class="md-raised md-warn" aria-label="Cancel">Cancel</md-button> </md-radio-group></md-radio-group></form> <!--
+<md-content class="md-padding">
+  <h3>
+    RGB <span style="border: 1px solid #333; background: rgb({{ note.color.red}},{{ note.color.green}},{{ note.color.blue}})">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </h3>
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>R</span>
+    </div>
+    <md-slider md-theme="red" flex min="0" max="255" ng-model=" note.color.red" aria-label="red" id="red-slider">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="number" ng-model=" note.color.red" aria-label="red" aria-controls="red-slider">
+    </div>
+  </div>
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>G</span>
+    </div>
+    <md-slider md-theme="green" flex ng-model=" note.color.green" min="0" max="255" aria-label="green" id="green-slider">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="number" ng-model=" note.color.green" aria-label="green" aria-controls="green-slider">
+    </div>
+  </div>
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>B</span>
+    </div>
+    <md-slider md-theme="blue" flex ng-model=" note.color.blue" min="0" max="255" aria-label="blue" id="blue-slider">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="number" ng-model=" note.color.blue" aria-label="blue" aria-controls="blue-slider">
+    </div>
+  </div>
+</md-content>
+-->
