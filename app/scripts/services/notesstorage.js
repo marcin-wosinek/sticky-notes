@@ -10,7 +10,8 @@
 angular.module('stickyNotesApp')
   .factory('notesStorage', function ($localStorage) {
     var storage = $localStorage.$default({
-      notes: []
+      notes: [],
+      archived: []
     });
 
     // Public API here
@@ -18,6 +19,7 @@ angular.module('stickyNotesApp')
       add: function (note) {
         storage.notes.push(note);
       },
+        //TODO: change name to getCurrentNotes or something alike
       getAll: function () {
         return storage.notes;
       },
@@ -26,6 +28,27 @@ angular.module('stickyNotesApp')
       },
       set: function(id, note){
         storage.notes[id] = note;
+      },
+      remove: function(note){
+        var index = storage.notes.indexOf(note);
+        if (index > -1) {
+          storage.notes.splice(index, 1);
+        }
+      },
+      archive: function(note){
+        var today = new Date();
+        note.archivedDate = {
+            dd : today.getDate(),
+            mm : today.getMonth(),
+            yyyy : today.getFullYear(),
+            time: today.getTime(),
+            fullDate :  today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate()
+        };
+        storage.archived.push(note);
+        this.remove(note);
+      },
+      getArchivedNotes: function(){
+        return storage.archived;
       }
     };
   });

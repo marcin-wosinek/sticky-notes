@@ -26,25 +26,23 @@ angular.module('stickyNotesApp')
     };
 
     $scope.remove = function (notes, note) {
-      var removed,
-        index = notes.indexOf(note);
 
-      if (index > -1) {
-        removed = notes[index];
-
-        notes.splice(index, 1);
+        notesStorage.remove(note);
 
         $mdToast.show({
           controller: 'RemovedToastCtrl',
           templateUrl: 'views/removed-toast.html',
           hideDelay: 6000,
           locals: {
-            removedNote: removed
+            removedNote: note
           }
         });
-      }
     };
 
+    $scope.archive = function (notes, note) {
+
+        notesStorage.archive(note);
+    };
     $scope.drag = function (note) {
       note._dragged = true;
     };

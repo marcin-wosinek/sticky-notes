@@ -1,15 +1,97 @@
-<md-list>
-  <md-item ng-repeat="note in notes">
-    <md-item-content>
-      <div class="md-tile-left">
-        Note {{$index + 1}}
-      </div>
-      <div class="md-tile-content">
-        <h3>{{note.title}}</h3>
-        <p>
-          {{note.description}}
-        </p>
-      </div>
-    </md-item-content>
-  </md-item>
-</md-list>
+<div ng-controller="ListCtrl" layout="column" flex layout-fill>
+    <md-content style="height: 600px;">
+        <section>
+            <md-subheader class="md-primary">Current</md-subheader>
+            <md-list layout="column">
+                <md-item ng-repeat="note in notes">
+                    <md-item-content>
+                        <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':note.color}">
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{note.title}}</h3>
+                            <h4>{{note.date}}</h4>
+                            <p>
+                                {{note.description}}
+                            </p>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </section>
+        <section>
+            <md-subheader class="md-warn">Archived Today</md-subheader>
+            <md-list layout="column">
+                <md-item ng-repeat="message in archived | today">
+                    <md-item-content>
+                        <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':message.color}">
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{message.title}}</h3>
+                            <h4>{{message.date}}</h4>
+                            <p>
+                                {{message.description}}
+                            </p>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </section>
+        <!-- TODO: finish it
+        <section>
+            <md-subheader>Archived Yesterday</md-subheader>
+            <md-list layout="column">
+                <md-item ng-repeat="message in messages">
+                    <md-item-content>
+                        <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':note.color}">
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{message.what}}</h3>
+                            <h4>{{message.who}}</h4>
+                            <p>
+                                {{message.notes}}
+                            </p>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </section>
+        <section>
+            <md-subheader class="md-accent">Archived This Week</md-subheader>
+            <md-list layout="column">
+                <md-item ng-repeat="message in messages">
+                    <md-item-content>
+                        <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':note.color}">
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{message.what}}</h3>
+                            <h4>{{message.who}}</h4>
+                            <p>
+                                {{message.notes}}
+                            </p>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </section>
+        <section>
+            <md-subheader class="md-accent">Older</md-subheader>
+            <md-list layout="column">
+                <md-item ng-repeat="message in messages">
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            Picture
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{message.what}}</h3>
+                            <h4>{{message.who}}</h4>
+                            <p>
+                                {{message.notes}}
+                            </p>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </section>
+        -->
+    </md-content>
+</div>
