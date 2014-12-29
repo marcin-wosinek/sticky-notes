@@ -6,7 +6,7 @@ angular.module('stickyNotesApp').filter('earlier', function () {
     return function(input){
       var day = new Date();
       var output = [];
-      day.setDate(day.getDate()-2);
+      day.setDate(day.getDate());
       var week = new Array(7);
       for(var i = 0; i<7; i++){
         week[i] = day.getFullYear()+'-'+ day.getMonth()+'-'+ day.getDate();
