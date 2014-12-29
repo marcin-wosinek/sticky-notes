@@ -47,6 +47,12 @@ angular.module('stickyNotesApp')
         storage.archived.push(note);
         this.remove(note);
       },
+      removeFromArchived: function(note){
+        var index = storage.archived.indexOf(note);
+        if (index > -1) {
+          storage.archived.splice(index, 1);
+        }
+      },
       getArchivedNotes: function(){
         return storage.archived;
       }
