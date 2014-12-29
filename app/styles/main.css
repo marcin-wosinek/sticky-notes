@@ -135,3 +135,32 @@ md-backdrop {
     color: white;
     text-decoration: none;
 }
+
+.authors-dialog{
+  z-index:36;
+
+}
+
+.authors-dialog section{
+  padding-bottom:10px
+}
+
+.person{
+  position: relative;
+}
+
+.person .name{
+  float: right;
+  top:0px;
+  padding-left:15px;
+}
+
+.person .marcin{
+  background-size: cover;
+  background-image:url(../images/marcin.png);
+}
+
+.person .grzesiek{
+  background-image:url(../images/grzesiek.png);
+  background-size: cover;
+}

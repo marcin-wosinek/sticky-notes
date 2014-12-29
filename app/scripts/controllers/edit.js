@@ -10,7 +10,7 @@
 angular.module('stickyNotesApp')
   .controller('EditCtrl', function ($scope, $location, $routeParams, notesStorage) {
     var id = $routeParams.id;
-    $scope.note = {}
+    $scope.note = {};
 
     angular.copy(notesStorage.get(id),$scope.note);
     $scope.done = function () {
