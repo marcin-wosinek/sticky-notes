@@ -12,7 +12,7 @@ describe('Directive: snDimensions', function () {
     scope = $rootScope.$new();
   }));
 
-  xit('should make hidden element visible', inject(function ($compile) {
+  xit('filter ', inject(function ($compile) {
     element = angular.element('<sn-dimensions></sn-dimensions>');
     element = $compile(element)(scope);
     expect(element.text()).toBe('this is the snDimensions directive');

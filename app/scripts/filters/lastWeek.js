@@ -4,17 +4,19 @@
 
 angular.module('stickyNotesApp').filter('lastWeek', function () {
     return function(input){
-        var day = new Date();
-        var week = new Array(5);
-        for(var i = 0; i<5; i++){
-            day.setDate(day.getDate()-(i+2));
-            week[i] =  day.getFullYear()+'-'+ day.getMonth()+'-'+ day.getDate();
+      var day = new Date();
+      var output = [];
+      day.setDate(day.getDate()-2);
+      var week = new Array(5);
+      for(var i = 0; i<5; i++){
+        week[i] = day.getFullYear()+'-'+ day.getMonth()+'-'+ day.getDate();
+        day.setDate(day.getDate()-1);
+      }
+      input.forEach(function(item, index){
+        if(week.indexOf(item.archivedDate.fullDate)!== -1 ){
+          output.push(item);
         }
-        input.forEach(function(item, index){
-            if(week.indexOf(item) ){
-                input.splice(index,1);
-            }
-        });
-        return input;
+      });
+      return output;
     }
 });

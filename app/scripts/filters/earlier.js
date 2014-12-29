@@ -2,19 +2,21 @@
  * Created by Grzegorz on 2014-12-28.
  */
 
-angular.module('stickyNotesApp').filter('lastWeek', function () {
+angular.module('stickyNotesApp').filter('earlier', function () {
     return function(input){
-        var day = new Date();
-        var week = new Array(5);
-        for(var i = 0; i<7; i++){
-            day.setDate(day.getDate()-i);
-            week[i] =  day.getFullYear()+'-'+ day.getMonth()+'-'+ day.getDate();
+      var day = new Date();
+      var output = [];
+      day.setDate(day.getDate()-2);
+      var week = new Array(7);
+      for(var i = 0; i<7; i++){
+        week[i] = day.getFullYear()+'-'+ day.getMonth()+'-'+ day.getDate();
+        day.setDate(day.getDate()-1);
+      }
+      input.forEach(function(item, index){
+        if(week.indexOf(item.archivedDate.fullDate)=== -1 ){
+          output.push(item);
         }
-        input.forEach(function(item, index){
-            if(week.indexOf(item) === -1 ){
-                input.splice(index,1);
-            }
-        });
-        return input;
+      });
+      return output;
     }
 });
