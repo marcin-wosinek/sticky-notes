@@ -18,8 +18,11 @@ angular.module('stickyNotesApp')
       description: ''
     };
 
+    function generateColor(){
+      return Math.floor(Math.random() * (255-180) + 180);
+    }
     $scope.note = angular.copy(emptyNote);
-    $scope.note.color = '#FFFFFF';
+    $scope.note.color = {red: generateColor(),green:generateColor(),blue:generateColor()};
     $scope.done = function (note) {
       notesStorage.add(note);
       $location.path('/board');

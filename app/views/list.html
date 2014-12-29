@@ -5,7 +5,7 @@
             <md-list layout="column">
                 <md-item ng-repeat="note in notes">
                     <md-item-content>
-                        <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':note.color}">
+                        <div class="md-tile-left md-whiteframe-z1 note-preview" ng-attr-style="background: rgb({{note.color.red}},{{note.color.green}},{{note.color.blue}})">
                         </div>
                         <div class="md-tile-content">
                             <h3>{{note.title}}</h3>
@@ -21,15 +21,15 @@
       <section>
         <md-subheader class="md-warn">Archived today</md-subheader>
         <md-list layout="column">
-          <md-item ng-repeat="message in archived | today">
+          <md-item ng-repeat="note in archived | today">
             <md-item-content>
-              <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':message.color}">
+              <div class="md-tile-left md-whiteframe-z1 note-preview" ng-attr-style="background: rgb({{note.color.red}},{{note.color.green}},{{note.color.blue}})">
               </div>
               <div class="md-tile-content">
-                <h3>{{message.title}}</h3>
-                <h4>{{message.date}}</h4>
+                <h3>{{note.title}}</h3>
+                <h4>{{note.date}}</h4>
                 <p>
-                  {{message.description}}
+                  {{note.description}}
                 </p>
               </div>
             </md-item-content>
@@ -39,15 +39,15 @@
       <section>
         <md-subheader class="md-warn">Archived yesterday</md-subheader>
         <md-list layout="column">
-          <md-item ng-repeat="message in archived | yesterday">
+          <md-item ng-repeat="note in archived | yesterday">
             <md-item-content>
-              <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':message.color}">
+              <div class="md-tile-left md-whiteframe-z1 note-preview" ng-attr-style="background: rgb({{note.color.red}},{{note.color.green}},{{note.color.blue}})">
               </div>
               <div class="md-tile-content">
-                <h3>{{message.title}}</h3>
-                <h4>{{message.date}}</h4>
+                <h3>{{note.title}}</h3>
+                <h4>{{note.date}}</h4>
                 <p>
-                  {{message.description}}
+                  {{note.description}}
                 </p>
               </div>
             </md-item-content>
@@ -57,15 +57,15 @@
       <section>
         <md-subheader class="md-warn">Archived last week</md-subheader>
         <md-list layout="column">
-          <md-item ng-repeat="message in archived | lastWeek">
+          <md-item ng-repeat="note in archived | lastWeek">
             <md-item-content>
-              <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':message.color}">
+              <div class="md-tile-left md-whiteframe-z1 note-preview" ng-attr-style="background: rgb({{note.color.red}},{{note.color.green}},{{note.color.blue}})">
               </div>
               <div class="md-tile-content">
-                <h3>{{message.title}}</h3>
-                <h4>{{message.date}}</h4>
+                <h3>{{note.title}}</h3>
+                <h4>{{note.date}}</h4>
                 <p>
-                  {{message.description}}
+                  {{note.description}}
                 </p>
               </div>
             </md-item-content>
@@ -75,15 +75,15 @@
       <section>
       <md-subheader class="md-warn">Archived earlier</md-subheader>
         <md-list layout="column">
-          <md-item ng-repeat="message in archived | earlier">
+          <md-item ng-repeat="note in archived | earlier">
             <md-item-content>
-              <div class="md-tile-left md-whiteframe-z1 note-preview" ng-style="{'background-color':message.color}">
+              <div class="md-tile-left md-whiteframe-z1 note-preview"ng-attr-style="background: rgb({{note.color.red}},{{note.color.green}},{{note.color.blue}})">
               </div>
               <div class="md-tile-content">
-                <h3>{{message.title}}</h3>
-                <h4>{{message.date}}</h4>
+                <h3>{{note.title}}</h3>
+                <h4>{{note.date}}</h4>
                 <p>
-                  {{message.description}}
+                  {{note.description}}
                 </p>
               </div>
             </md-item-content>

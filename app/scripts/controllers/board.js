@@ -20,7 +20,7 @@ angular.module('stickyNotesApp')
       }
 
       return {
-        'background-color' : note.color,
+        'background-color' : "rgb(" + note.color.red + "," + note.color.green + "," + note.color.blue,
         left: note.position.x + 'px',
         top: note.position.y + 'px'
       };
