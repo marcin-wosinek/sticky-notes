@@ -136,9 +136,8 @@ md-backdrop {
     text-decoration: none;
 }
 
-.authors-dialog{
-  z-index:36;
-
+.md-dialog-container.md-active{
+  z-index:100;
 }
 
 .authors-dialog section{

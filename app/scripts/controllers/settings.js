@@ -19,7 +19,6 @@ angular.module('stickyNotesApp')
 
     $scope.authors = function(ev) {
       $mdBottomSheet.hide();
-      console.log(ev)
       $mdDialog.show({
         controller: 'AuthorsCtrl',
         templateUrl: 'views/authors.html',
