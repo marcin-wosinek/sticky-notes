@@ -44,10 +44,12 @@ md-toolbar {
   right: 28px;
 }
 
-.md-button.md-default-theme.md-fab {
+
+
+.md-button.md-default-theme.md-fab.smart-button {
   background: #ffeb3b;
   position: relative;
-  top: 28px;
+  top: -30px;
   left: 28px;
   z-index: 30;
 }
@@ -58,7 +60,7 @@ md-toolbar {
 
 .workspace {
   position: relative;
-  background-color: rgba(232, 216, 181, 0.55);
+  background-color: rgba(237, 237, 237, 0.55);
 }
 
 .note {
@@ -134,6 +136,7 @@ md-backdrop {
 .logo{
     color: white;
     text-decoration: none;
+    text-align: center;
 }
 
 .md-dialog-container.md-active md-dialog{
@@ -147,22 +150,43 @@ md-backdrop {
 
 .person{
   position: relative;
+    width:260px;
 }
 
 .person .name{
-  float: right;
   top:0px;
-  padding-left:15px;
 }
 
-.person .marcin{
+.person.marcin .name{
+    float: right;
+    padding-left:15px;
+}
+
+
+.person.marcin .pic, .person.marcin button.md-fab.pic.md-button.md-default-theme:hover{
   background-size: cover;
   background-image:url(../images/marcin.png);
 }
 
-.person .grzesiek{
-  background-image:url(../images/grzesiek.png);
-  background-size: cover;
+.person.grzesiek .pic , .person.grzesiek button.md-fab.pic.md-button.md-default-theme:hover{
+    background-image:url(../images/grzesiek.png);
+    float:right;
+    background-size: cover;
 }
 
+.person .pic {
+    filter: sepia(0.6);
+    -webkit-filter: sepia(0.6);
+    -moz-filter: sepia(0.6);
+    -o-filter: sepia(0.6);
+    -ms-filter: sepia(0.6);
+}
 
+.person .pic:hover{
+    filter: sepia(0);
+    -webkit-filter: sepia(0);
+    -moz-filter: sepia(0);
+    -o-filter: sepia(0);
+    -ms-filter: sepia(0);
+
+}
