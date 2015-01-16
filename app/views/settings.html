@@ -2,20 +2,26 @@
   <md-list>
     <md-item>
       <md-button ng-click="archiveAll()" aria-label="Archive all">
-        <md-inline-grid-icon icon="./images/ic_delete_24px.svg"></md-inline-grid-icon>
+        <div>
+          <md-icon icon="./images/ic_delete_24px.svg"></md-icon>
+        </div>
         Archive all
       </md-button>
     </md-item>
     <md-item>
-      <md-button ng-click="exitSettings()" aria-label="Exit settings">
-        <md-inline-grid-icon icon="./images/ic_arrow_back_24px.svg"></md-inline-grid-icon>
-        Exit settings
+      <md-button ng-click="authors($event)" aria-label="Authors">
+        <div>
+          <md-icon icon="./images/ic_group_24px.svg"></md-icon>
+        </div>
+        Authors
       </md-button>
     </md-item>
     <md-item>
-      <md-button ng-click="authors($event)" aria-label="Authors">
-        <md-inline-grid-icon icon="./images/ic_arrow_back_24px.svg"></md-inline-grid-icon>
-        Authors
+      <md-button ng-click="exitSettings()" aria-label="Exit settings">
+        <div>
+          <md-icon icon="./images/ic_arrow_back_24px.svg"></md-icon>
+        </div>
+        Exit settings
       </md-button>
     </md-item>
   </md-list>
