@@ -3,6 +3,11 @@ html, body {
   min-height: 100%;
 }
 
+hr {
+  clear: both;
+  margin-top: 5px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -128,65 +133,45 @@ md-backdrop {
 }
 
 .note-preview {
-    width:50px;
-    height: 50px;
-    margin:5px;
+  width:50px;
+  height: 50px;
+  margin:5px;
 }
 
-.logo{
-    color: white;
-    text-decoration: none;
-    text-align: center;
+.logo {
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
 
-.md-dialog-container.md-active md-dialog{
+.md-dialog-container.md-active md-dialog {
   z-index:100;
-  opacity:1;
 }
 
-.authors-dialog section{
-  padding-bottom:10px
-}
-
-.person{
-  position: relative;
-    width:260px;
-}
-
-.person .name{
-  top:0px;
-}
-
-.person.marcin .name{
-    float: right;
-    padding-left:15px;
-}
-
-
-.person.marcin .pic, .person.marcin button.md-fab.pic.md-button.md-default-theme:hover{
-  background-size: cover;
-  background-image:url(../images/marcin.png);
-}
-
-.person.grzesiek .pic , .person.grzesiek button.md-fab.pic.md-button.md-default-theme:hover{
-    background-image:url(../images/grzesiek.png);
-    float:right;
-    background-size: cover;
+.authors-dialog {
+  padding-bottom: 10px;
+  width: 300px;
 }
 
 .person .pic {
-    filter: sepia(0.6);
-    -webkit-filter: sepia(0.6);
-    -moz-filter: sepia(0.6);
-    -o-filter: sepia(0.6);
-    -ms-filter: sepia(0.6);
+  margin: 1px 5px 4px;
+  border-radius: 28px;
+  float: left;
+  filter: sepia(0.6);
+  -webkit-filter: sepia(0.6);
+  -moz-filter: sepia(0.6);
+  -o-filter: sepia(0.6);
+  -ms-filter: sepia(0.6);
 }
 
 .person .pic:hover{
-    filter: sepia(0);
-    -webkit-filter: sepia(0);
-    -moz-filter: sepia(0);
-    -o-filter: sepia(0);
-    -ms-filter: sepia(0);
+  filter: sepia(0);
+  -webkit-filter: sepia(0);
+  -moz-filter: sepia(0);
+  -o-filter: sepia(0);
+  -ms-filter: sepia(0);
+}
 
+.grzesiek .pic {
+  float: right;
 }
