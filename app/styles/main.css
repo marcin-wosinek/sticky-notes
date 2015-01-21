@@ -50,8 +50,6 @@ md-toolbar {
   right: 28px;
 }
 
-
-
 .md-button.md-default-theme.md-fab.smart-button {
   background: #ffeb3b;
   position: relative;
@@ -77,11 +75,9 @@ md-toolbar {
   width: 250px;
 }
 
-.square{
+.edit .note {
+  position: static;
   margin: 10px;
-  width: 200px;
-  height: 200px;
-  position: relative;
 }
 
 .md-track {
@@ -142,14 +138,6 @@ md-icon {
 
 .md-whiteframe-z2 {
   z-index: 20;
-}
-
-.green {
-  background-color: #a5d6a7;
-}
-
-.pink {
-  background-color: #f48fb1;
 }
 
 .note-preview {
