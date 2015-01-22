@@ -11,7 +11,6 @@
 angular.module('stickyNotesApp')
   .controller('BoardCtrl', function ($scope, $mdToast, notesStorage) {
 
-    $scope.hello = "test";
     $scope.notes = notesStorage.getAll();
 
     $scope.style = function (note) {

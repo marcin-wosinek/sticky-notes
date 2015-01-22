@@ -13,10 +13,12 @@ angular.module('stickyNotesApp')
       var notes = notesStorage.getAll();
       var length = notes.length;
       var archived = [];
+
       for(var i=length-1;i>=0;i--){
         archived.push(notes[i]);
         notesStorage.archive(notes[i]);
       }
+
       $mdToast.show({
         controller: 'ArchivedAllToastCtrl',
         templateUrl: 'views/archived-all-toast.html',
@@ -37,6 +39,6 @@ angular.module('stickyNotesApp')
         controller: 'AuthorsCtrl',
         templateUrl: 'views/authors.html',
         targetEvent: ev
-      })
+      });
     };
   });

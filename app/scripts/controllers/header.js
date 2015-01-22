@@ -13,7 +13,7 @@ angular.module('stickyNotesApp')
       $mdBottomSheet.show({
         templateUrl: 'views/settings.html',
         controller: 'SettingsCtrl'
-      }).then(function(clickedItem) {
+      }).then(function() {
         $scope.alert = 'You are back!';
       });
     };
