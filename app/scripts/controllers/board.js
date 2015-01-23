@@ -9,7 +9,7 @@
  * their interactions.
  */
 angular.module('stickyNotesApp')
-  .controller('BoardCtrl', function ($scope, $mdToast, notesStorage) {
+  .controller('BoardCtrl', function ($scope, $mdToast, $location, notesStorage) {
 
     $scope.notes = notesStorage.getAll();
 
@@ -27,22 +27,23 @@ angular.module('stickyNotesApp')
 
     $scope.remove = function (notes, note) {
 
-        notesStorage.remove(note);
+      notesStorage.remove(note);
 
-        $mdToast.show({
-          controller: 'RemovedToastCtrl',
-          templateUrl: 'views/removed-toast.html',
-          hideDelay: 6000,
-          locals: {
-            removedNote: note
-          }
-        });
+      $mdToast.show({
+        controller: 'RemovedToastCtrl',
+        templateUrl: 'views/removed-toast.html',
+        hideDelay: 6000,
+        locals: {
+          removedNote: note
+        }
+      });
     };
 
     $scope.archive = function (notes, note) {
 
-        notesStorage.archive(note);
+      notesStorage.archive(note);
     };
+
     $scope.drag = function (note) {
       note._dragged = true;
     };
@@ -80,5 +81,9 @@ angular.module('stickyNotesApp')
       if (note.position.y > boardSize.y - note._dimensions.y) {
         note.position.y = boardSize.y - note._dimensions.y;
       }
+    };
+
+    $scope.noteDblclick = function (noteId) {
+      $location.url('/edit/' + noteId);
     };
   });
