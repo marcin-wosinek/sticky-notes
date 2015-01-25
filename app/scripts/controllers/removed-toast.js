@@ -9,7 +9,7 @@
  */
 angular.module('stickyNotesApp')
   .controller('RemovedToastCtrl', function ($scope, $mdToast, notesStorage, removedNote) {
-    $scope.restore = function() {
+    $scope.restore = function () {
       notesStorage.add(removedNote);
       $mdToast.hide();
     };

@@ -14,7 +14,7 @@ angular.module('stickyNotesApp')
       var length = notes.length;
       var archived = [];
 
-      for(var i=length-1;i>=0;i--){
+      for (var i = length - 1; i >= 0;i--) {
         archived.push(notes[i]);
         notesStorage.archive(notes[i]);
       }
@@ -33,7 +33,7 @@ angular.module('stickyNotesApp')
       $mdBottomSheet.hide();
     };
 
-    $scope.authors = function(ev) {
+    $scope.authors = function (ev) {
       $mdBottomSheet.hide();
       $mdDialog.show({
         controller: 'AuthorsCtrl',

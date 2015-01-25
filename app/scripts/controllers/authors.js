@@ -9,7 +9,7 @@
  */
 angular.module('stickyNotesApp')
   .controller('AuthorsCtrl', function ($scope, $mdDialog) {
-    $scope.hide = function() {
+    $scope.hide = function () {
       $mdDialog.hide();
     };
   });

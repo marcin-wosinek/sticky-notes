@@ -9,11 +9,11 @@
  */
 angular.module('stickyNotesApp')
   .controller('ArchivedAllToastCtrl', function ($scope, $mdToast, notesStorage, archivedNotes) {
-    $scope.undo = function() {
-      if(typeof archivedNotes !== Array){
+    $scope.undo = function () {
+      if (typeof archivedNotes !== Array) {
         archivedNotes = Array.prototype.slice.call(archivedNotes);
       }
-      archivedNotes.forEach(function(note){
+      archivedNotes.forEach(function (note) {
         notesStorage.removeFromArchived(note);
         notesStorage.add(note);
       });

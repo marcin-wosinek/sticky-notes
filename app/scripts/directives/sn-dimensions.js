@@ -14,13 +14,13 @@ angular.module('stickyNotesApp')
   .directive('snDimensions', function ($window, $parse, $timeout, dimensionDelay) {
     return {
       restrict: 'A',
-      link: function postLink(scope, element, attrs) {
+      link: function postLink (scope, element, attrs) {
 
         // We parse value set to sn-dimensions attribute
         var parsedSnDimensions = $parse(attrs.snDimensions);
 
         // function that update scope with expected values
-        function setDimensions() {
+        function setDimensions () {
           parsedSnDimensions.assign(scope, {
             x: element[0].offsetWidth,
             y: element[0].offsetHeight
@@ -37,7 +37,7 @@ angular.module('stickyNotesApp')
         $timeout(setDimensions, dimensionDelay);
 
         // When window is resized, we check the size again
-        $window.onresize = function() {
+        $window.onresize = function () {
           scope.$apply(setDimensions);
         };
 

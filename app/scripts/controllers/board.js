@@ -14,7 +14,7 @@ angular.module('stickyNotesApp')
     $scope.notes = notesStorage.getAll();
 
     $scope.style = function (note) {
-      if(angular.isUndefined(note)){
+      if (angular.isUndefined(note)) {
         return;
       }
 
