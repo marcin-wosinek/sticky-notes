@@ -1,7 +1,13 @@
 <form class="edit">
   <div class="note md-whiteframe-z1" ng-attr-style="background: rgb({{note.color.red}},{{note.color.green}},{{note.color.blue}})">
-    <md-text-float label="Title" ng-model="note.title"></md-text-float>
-    <md-text-float label="Description" ng-model="note.description"></md-text-float>
+    <md-input-container>
+      <label>Title</label>
+      <input ng-model="note.title" />
+    </md-input-container>
+    <md-input-container>
+      <label>Description</label>
+      <textarea ng-model="note.description"></textarea>
+    </md-input-container>
   </div>
 
   Custom color:
@@ -33,7 +39,10 @@
   <md-checkbox ng-model="note.date" aria-label="Due date">
       Due date
   </md-checkbox>
-  <md-text-float label="Due date" type="date" ng-model="note.dateValue"></md-text-float>
+  <md-input-container>
+    <label>Due date</label>
+    <input ng-model="note.dateValue" type="date" />
+  </md-input-container>
 
   <md-button ng-click="done(note)" class="md-raised md-primary" aria-label="Add">Done</md-button>
   <md-button ng-click="reset(note)" class="md-raised" aria-label="Reset">Reset</md-button>
