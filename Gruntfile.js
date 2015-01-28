@@ -305,7 +305,6 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
             'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             'fonts/{,*/}*.*'
           ]
@@ -351,6 +350,18 @@ module.exports = function (grunt) {
       options: {
         config: '.jscs.json'
       }
+    },
+
+    // injecting views
+    ngtemplates: {
+      stickyNotesApp: {
+        src: 'views/{,*/}*.html',
+        cwd: '<%= yeoman.app %>',
+        dest: '.tmp/template.js',
+        options:  {
+          usemin: '<%= yeoman.dist %>/scripts/scripts.js' // <~~ This came from the <!-- build:js --> block
+        }
+      }
     }
   });
 
@@ -387,6 +398,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'wiredep',
     'useminPrepare',
+    'ngtemplates',
     'concurrent:dist',
     'autoprefixer',
     'concat',
@@ -395,7 +407,6 @@ module.exports = function (grunt) {
     'cdnify',
     'cssmin',
     'uglify',
-    'filerev',
     'usemin',
     'htmlmin'
   ]);
