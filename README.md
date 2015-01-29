@@ -3,6 +3,8 @@ Sticky notes [![Build Status](https://travis-ci.org/marcin-wosinek/sticky-notes.
 
 Demo of [angular material framework](https://material.angularjs.org/#/). It's the board with sticky notes that can be edited and moved around. Main point is to use as many ngMaterial features as possible.
 
+![application print screen](https://cloud.githubusercontent.com/assets/1024920/5963174/d245b5cc-a7e1-11e4-9b66-08c52eb98f4c.png)
+
 # Contributing
 
 We are happy to welcome more contributores to project. Issue and PR are both welcome.
