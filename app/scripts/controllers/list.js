@@ -9,6 +9,6 @@
  */
 angular.module('stickyNotesApp')
   .controller('ListCtrl', function ($scope, notesStorage) {
-    $scope.notes = notesStorage.getAll();
-    $scope.archived = notesStorage.getArchivedNotes();
+    $scope.notes = notesStorage.getCurrent();
+    $scope.archived = notesStorage.getArchived();
   });

@@ -11,7 +11,7 @@
 angular.module('stickyNotesApp')
   .controller('BoardCtrl', function ($scope, $mdToast, $location, notesStorage) {
 
-    $scope.notes = notesStorage.getAll();
+    $scope.notes = notesStorage.getCurrent();
 
     $scope.style = function (note) {
       if (angular.isUndefined(note)) {
@@ -27,7 +27,9 @@ angular.module('stickyNotesApp')
 
     $scope.remove = function (notes, note) {
 
-      notesStorage.remove(note);
+      notesStorage.remove(note.id);
+      // TODO do it smarter
+      $scope.notes = notesStorage.getCurrent();
 
       $mdToast.show({
         controller: 'RemovedToastCtrl',
@@ -41,7 +43,9 @@ angular.module('stickyNotesApp')
 
     $scope.archive = function (notes, note) {
 
-      notesStorage.archive(note);
+      notesStorage.archive(note.id);
+      // TODO do it smarter
+      $scope.notes = notesStorage.getCurrent();
     };
 
     $scope.drag = function (note) {
@@ -50,6 +54,7 @@ angular.module('stickyNotesApp')
 
     $scope.drop = function (note) {
       delete note._dragged;
+      notesStorage.set(note.id, note);
     };
 
     $scope.move = function (note, x, y, boardSize) {
