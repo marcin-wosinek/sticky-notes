@@ -15,6 +15,8 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  grunt.template.addDelimiters('handlebars-like-delimiters', '{{', '}}');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -365,6 +367,22 @@ module.exports = function (grunt) {
         dest: '.tmp/template.js',
         options:  {
           usemin: '<%= yeoman.dist %>/scripts/scripts.js' // <~~ This came from the <!-- build:js --> block
+        }
+      }
+    },
+
+    template: {
+      version: {
+        options: {
+          delimiters: 'handlebars-like-delimiters',
+          data: function () {
+            return {
+              version: grunt.option('describe') || 'unknown'
+            };
+          }
+        },
+        files: {
+          'dist/index.html': ['dist/index.html']
         }
       }
     }

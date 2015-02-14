@@ -24,7 +24,7 @@
     <div class="container" ng-controller="MainCtrl" ng-class="route">
       <md-toolbar class="md-whiteframe-z1" ng-controller="HeaderCtrl">
         <a ng-href="#/board" class="logo">
-            <h1 ng-href="#/board" >Sticky notes</h1>
+          <h1 ng-href="#/board" title="{{- version }}">Sticky notes</h1>
         </a>
         <md-button class="settings" ng-click="openSettings()" aria-label="Open settings" title="settings"><md-icon icon="./images/ic_menu_24px.svg">Settings</md-icon></md-button>
         <md-button ng-href="#/board" aria-label="Note link">Notes board</md-button>

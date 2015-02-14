@@ -1,4 +1,6 @@
 #!/bin/bash
+version=`git describe --dirty`
+grunt template --describe $version
 cd dist
 git init
 git config user.name "Travis-CI"
