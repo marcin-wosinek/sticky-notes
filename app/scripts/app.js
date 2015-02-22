@@ -14,8 +14,7 @@ angular
     'ngAria',
     'ngRoute',
     'ngTouch',
-    'ngMaterial',
-    'ngStorage'
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
