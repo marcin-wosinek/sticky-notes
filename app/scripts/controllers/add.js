@@ -30,6 +30,7 @@ angular.module('stickyNotesApp')
     };
 
     $scope.done = function (note) {
+      // TODO make use of promise api, and notify user when save failed
       notesStorage.add(note);
       $location.path('/board');
     };

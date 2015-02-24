@@ -10,56 +10,77 @@
  * storage mechanizm.
  */
 angular.module('stickyNotesApp')
-  .service('storage', function () {
+  .service('storage', function ($q) {
 
     var storage = localStorage;
 
     // Public API here
     return {
-      // TODO: rewrite to be promise based
       /**
        * Saves new note. Method responsible for setting id for a note.
+       * @return {promise} resolves with true, reject with error description
        */
       add: function (note) {
-        // id generator
-        note.id = Math.random().toString(36).substring(7);
+        return $q(function (resolve) {
+          // I want to ensure that user will depend on promise to return id - in case in other
+          // storage implementing other behaviour would be problematic
+          var isolatedNote = angular.copy(note);
 
-        storage[note.id] = JSON.stringify(note);
+          // id generator
+          isolatedNote.id = Math.random().toString(36).substring(7);
+
+          storage[isolatedNote.id] = JSON.stringify(isolatedNote);
+
+          resolve(isolatedNote.id);
+        });
       },
-      // TODO: rewrite to be promise based
+
       /**
        * Fetch all existing objects.
+       * @return {promise} resolves with fetched data, reject with error description
        */
       getAll: function () {
-        var all = [],
-          that = this;
+        return $q(function (resolve) {
+          var all = [];
 
-        _.each(Object.keys(localStorage), function (id) {
-          all.push(that.get(id));
+          _.each(Object.keys(localStorage), function (id) {
+            all.push(JSON.parse(storage[id]));
+          });
+
+          resolve(all);
         });
-
-        return all;
       },
-      // TODO: rewrite to be promise based
+
       /**
        * Get object by id.
+       * @return {promise} resolves with fetched data, reject with error description
        */
       get: function (id) {
-        return JSON.parse(storage[id]);
+        return $q(function (resolve) {
+          resolve(JSON.parse(storage[id]));
+        });
       },
-      // TODO: rewrite to be promise based
+
       /**
        * Replace the object under the id.
+       * @return {promise} resolves with true, reject with error description
        */
       set: function (id, note) {
-        storage[id] = JSON.stringify(note);
+        return $q(function (resolve) {
+          storage[id] = JSON.stringify(note);
+          resolve(true);
+        });
       },
-      // TODO: rewrite to be promise based
+
       /**
        * Remove object by id.
+       * @return {promise} resolves with true, reject with error description
        */
       remove: function (id) {
-        delete storage[id];
+        return $q(function (resolve) {
+          delete storage[id];
+          resolve(true);
+        });
       }
     };
   });

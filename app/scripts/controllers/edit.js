@@ -8,18 +8,18 @@
  * Controller of the stickyNotesApp
  */
 angular.module('stickyNotesApp')
-  .controller('EditCtrl', function ($scope, $location, $routeParams, notesStorage) {
+  .controller('EditCtrl', function ($scope, $location, $routeParams, notesStorage, note) {
     var id = $routeParams.id;
-    $scope.note = {};
+    $scope.note = angular.copy(note);
 
-    angular.copy(notesStorage.get(id),$scope.note);
     $scope.done = function () {
-      notesStorage.set(id, $scope.note);
-      $location.path('/board');
+      notesStorage.set(id, $scope.note).then(function () {
+        $location.path('/board');
+      });
     };
 
     $scope.reset = function () {
-      angular.copy(notesStorage.get(id), $scope.note);
+      angular.copy(note, $scope.note);
     };
 
     $scope.cancel = function () {

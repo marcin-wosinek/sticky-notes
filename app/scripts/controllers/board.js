@@ -9,9 +9,8 @@
  * their interactions.
  */
 angular.module('stickyNotesApp')
-  .controller('BoardCtrl', function ($scope, $mdToast, $location, notesStorage) {
-
-    $scope.notes = notesStorage.getCurrent();
+  .controller('BoardCtrl', function ($scope, $mdToast, $location, notesStorage, notes) {
+    $scope.notes = notes;
 
     $scope.style = function (note) {
       if (angular.isUndefined(note)) {
@@ -27,25 +26,34 @@ angular.module('stickyNotesApp')
 
     $scope.remove = function (notes, note) {
 
-      notesStorage.remove(note.id);
-      // TODO do it smarter
-      $scope.notes = notesStorage.getCurrent();
+      notesStorage.remove(note.id).then(function () {
+        var position = notes.indexOf(note),
+          // to make sure no meta data ($$hashKey) will be coppied
+          removedNote = angular.copy(note);
 
-      $mdToast.show({
-        controller: 'RemovedToastCtrl',
-        templateUrl: 'views/removed-toast.html',
-        hideDelay: 6000,
-        locals: {
-          removedNote: note
+        if (position > -1) {
+          notes.splice(position, 1);
         }
+
+        $mdToast.show({
+          controller: 'RemovedToastCtrl',
+          templateUrl: 'views/removed-toast.html',
+          hideDelay: 6000,
+          locals: {
+            removedNote: removedNote
+          }
+        });
       });
     };
 
     $scope.archive = function (notes, note) {
+      notesStorage.archive(note.id).then(function () {
+        var position = notes.indexOf(note);
 
-      notesStorage.archive(note.id);
-      // TODO do it smarter
-      $scope.notes = notesStorage.getCurrent();
+        if (position > -1) {
+          notes.splice(position, 1);
+        }
+      });
     };
 
     $scope.drag = function (note) {
@@ -53,8 +61,10 @@ angular.module('stickyNotesApp')
     };
 
     $scope.drop = function (note) {
-      delete note._dragged;
-      notesStorage.set(note.id, note);
+      note._dragged = undefined;
+
+      // TODO make use of promise api, and notify user when save failed
+      return notesStorage.set(note.id, note);
     };
 
     $scope.move = function (note, x, y, boardSize) {

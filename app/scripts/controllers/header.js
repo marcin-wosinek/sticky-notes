@@ -12,7 +12,12 @@ angular.module('stickyNotesApp')
     $scope.openSettings = function () {
       $mdBottomSheet.show({
         templateUrl: 'views/settings.html',
-        controller: 'SettingsCtrl'
+        controller: 'SettingsCtrl',
+        resolve: {
+          notes: function (notesStorage) {
+            return notesStorage.getCurrent();
+          }
+        }
       }).then(function () {
         $scope.alert = 'You are back!';
       });

@@ -13,32 +13,47 @@ angular.module('stickyNotesApp')
     var NotesStorage = function () {
       this.add = function (note) {
         note.archived = false;
-        storage.add(note);
-      };
-      this.archive = function (id) {
-        var note = this.get(id),
-          today = new Date();
 
-        note.archived = true;
-        note.archivedDate = {
+        return storage.add(note);
+      };
+
+      this.archive = function (id) {
+        var today = new Date(),
+          that = this;
+
+        return this.get(id).then(function (note) {
+          note.archived = true;
+          note.archivedDate = {
             dd: today.getDate(),
             mm: today.getMonth(),
             yyyy: today.getFullYear(),
             time: today.getTime(),
             fullDate: today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate()
-        };
-
-        this.set(id, note);
+          };
+          return that.set(id, note);
+        });
       };
+
+      this.unarchive = function (id) {
+        var that = this;
+
+        return this.get(id).then(function (note) {
+          note.archived = false;
+          note.archivedDate = undefined;
+          return that.set(id, note);
+        });
+      };
+
       this.getArchived = function () {
-        var notes = this.getAll();
-
-        return _.where(notes, {archived: true});
+        return this.getAll().then(function (notes) {
+          return _.where(notes, {archived: true});
+        });
       };
-      this.getCurrent = function () {
-        var notes = this.getAll();
 
-        return _.where(notes, {archived: false});
+      this.getCurrent = function () {
+        return this.getAll().then(function (notes) {
+          return _.where(notes, {archived: false});
+        });
       };
     };
 
