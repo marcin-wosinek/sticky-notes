@@ -24,6 +24,17 @@ angular.module('stickyNotesApp')
       };
     };
 
+    $scope.class = function (note) {
+      var classes = {
+        'md-whiteframe-z1': !note._dragged,
+        'md-whiteframe-z2': note._dragged,
+      };
+
+      classes[note.color] = true;
+
+      return classes;
+    };
+
     $scope.remove = function (notes, note) {
 
       notesStorage.remove(note.id).then(function () {

@@ -9,7 +9,7 @@
       on-drag="drag(note)" on-move="move(note, deltaX, deltaY, boardSize)" on-drop="drop(note)"
       ng-style="style(note)"
       ng-dblclick="noteDblclick(note.id)"
-      ng-class="{'md-whiteframe-z1': !note._dragged, 'md-whiteframe-z2': note._dragged, '{{note.color}}': true}"
+      ng-class="class(note)"
       ng-repeat="note in notes">
     <h3>{{note.title}}</h3>
     {{note.description}}

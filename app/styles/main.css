@@ -124,12 +124,16 @@ md-slider.md-green-theme .md-thumb:after {
   top: 0;
 }
 
-.note .remove {
+.note .edit {
   right: 0;
 }
 
-.note .edit {
-  right: 2.5rem;
+.note .archive {
+  right: 2rem;
+}
+
+.note .remove {
+  right: 4rem;
 }
 
 md-icon {
