@@ -50,12 +50,16 @@ md-toolbar {
   right: 28px;
 }
 
-.md-button.md-default-theme.md-fab.smart-button {
+.smart-button {
   background: #ffeb3b;
   position: relative;
   top: -30px;
   left: 28px;
   z-index: 30;
+}
+
+.smart-button.smart-button md-icon {
+  margin: 9px;
 }
 
 .md-button.md-default-theme.md-fab:hover:not([disabled]) {
