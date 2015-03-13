@@ -26,10 +26,6 @@ hr {
   flex-grow: 1;
 }
 
-.board [ng-view] {
-  display: flex;
-}
-
 .workspace {
   min-height: 100%;
   flex-grow: 1;

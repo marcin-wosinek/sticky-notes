@@ -21,7 +21,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-controller="MainCtrl" ng-class="route">
+    <div class="container">
       <md-toolbar class="md-whiteframe-z1" ng-controller="HeaderCtrl as header">
         <a ng-href="#/board" class="logo">
           <h1 ng-href="#/board" title="{{- version }}">Sticky notes</h1>
@@ -31,8 +31,8 @@
         </md-button>
         <md-button ng-href="#/board" aria-label="Note link">Notes board</md-button>
         <md-button ng-href="#/list" aria-label="List link">List</md-button>
-       </md-toolbar>
-      <div ng-view=""></div>
+      </md-toolbar>
+      <div ng-view></div>
     </div>
 
     <!-- build:js(.) scripts/oldieshim.js -->
@@ -67,7 +67,6 @@
     <script src="scripts/controllers/settings.js"></script>
     <script src="scripts/controllers/header.js"></script>
     <script src="scripts/controllers/authors.js"></script>
-    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/archived-all-toast.js"></script>
     <script src="scripts/services/dimension-delay.js"></script>
     <script src="scripts/filters/today.js"></script>

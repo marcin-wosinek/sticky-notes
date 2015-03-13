@@ -1,10 +1,10 @@
 <div class="workspace" sn-dimensions="boardSize">
-    <section layout="row" layout-sm="column" >
-      <md-button ng-href="#/add" class="smart-button md-fab" aria-label="Add link" ng-if="route != 'add'">
-        <md-icon md-svg-icon="./images/add180.svg">Add</md-icon>
-      </md-button>
-    </section>
-    <div drag class="note"
+  <section layout="row" layout-sm="column" >
+    <md-button ng-href="#/add" class="smart-button md-fab" aria-label="Add link" ng-if="route != 'add'">
+      <md-icon md-svg-icon="./images/add180.svg">Add</md-icon>
+    </md-button>
+  </section>
+  <div drag class="note"
       sn-dimensions="note._dimensions"
       on-drag="drag(note)" on-move="move(note, deltaX, deltaY, boardSize)" on-drop="drop(note)"
       ng-style="style(note)"
