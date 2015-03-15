@@ -27,7 +27,7 @@ angular.module('stickyNotesApp')
     $scope.class = function (note) {
       var classes = {
         'md-whiteframe-z1': !note._dragged,
-        'md-whiteframe-z2': note._dragged,
+        'md-whiteframe-z2': note._dragged
       };
 
       classes[note.color] = true;

@@ -24,6 +24,8 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-material/angular-material.js',
+      'bower_components/angular-material/angular-material.js',
+      'bower_components/moment/moment.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

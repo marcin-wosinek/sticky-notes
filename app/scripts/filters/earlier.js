@@ -1,20 +1,28 @@
 'use strict';
 
-angular.module('stickyNotesApp').filter('earlier', function () {
-  return function (input) {
-    var day = new Date(),
-      output = [],
-      week = new Array(7);
+/**
+ * @ngdoc filter
+ * @name stickyNotesApp.filter:yesterday
+ * @description
+ * Filter that pass through only yesterday's dates
+ */
+angular.module('stickyNotesApp').filter('earlier', function (now) {
+  return function (input, key) {
+    var output = [],
+      momentYesterday = moment(now).subtract(1, 'days');
 
-    day.setDate(day.getDate());
-
-    for (var i = 0; i < 7; i++) {
-      week[i] = day.getFullYear() + '-' + day.getMonth() + '-' + day.getDate();
-      day.setDate(day.getDate() - 1);
+    if (!angular.isArray(input)) {
+      return input;
     }
 
+    var getDate = key ? function (entity) {
+      return entity[key];
+    } : function (entity) {
+      return entity;
+    };
+
     input.forEach(function (item) {
-      if (week.indexOf(item.archivedDate.fullDate) === -1) {
+      if (momentYesterday.isAfter(getDate(item), 'day')) {
         output.push(item);
       }
     });

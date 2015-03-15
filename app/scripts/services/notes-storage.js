@@ -11,6 +11,8 @@ angular.module('stickyNotesApp')
   .factory('notesStorage', function (storage) {
 
     var NotesStorage = function () {
+      var that = this;
+
       this.add = function (note) {
         note.archived = false;
 
@@ -18,25 +20,15 @@ angular.module('stickyNotesApp')
       };
 
       this.archive = function (id) {
-        var today = new Date(),
-          that = this;
 
         return this.get(id).then(function (note) {
           note.archived = true;
-          note.archivedDate = {
-            dd: today.getDate(),
-            mm: today.getMonth(),
-            yyyy: today.getFullYear(),
-            time: today.getTime(),
-            fullDate: today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate()
-          };
+          note.archivedDate = new Date();
           return that.set(id, note);
         });
       };
 
       this.unarchive = function (id) {
-        var that = this;
-
         return this.get(id).then(function (note) {
           note.archived = false;
           note.archivedDate = undefined;
