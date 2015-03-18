@@ -10,7 +10,7 @@
  * storage mechanizm.
  */
 angular.module('stickyNotesApp')
-  .service('storage', function ($q) {
+  .service('storage', function($q) {
 
     var storage = localStorage;
 
@@ -20,8 +20,8 @@ angular.module('stickyNotesApp')
        * Saves new note. Method responsible for setting id for a note.
        * @return {promise} resolves with true, reject with error description
        */
-      add: function (note) {
-        return $q(function (resolve) {
+      add: function(note) {
+        return $q(function(resolve) {
           // I want to ensure that user will depend on promise to return id - in case in other
           // storage implementing other behaviour would be problematic
           var isolatedNote = angular.copy(note);
@@ -39,11 +39,11 @@ angular.module('stickyNotesApp')
        * Fetch all existing objects.
        * @return {promise} resolves with fetched data, reject with error description
        */
-      getAll: function () {
-        return $q(function (resolve) {
+      getAll: function() {
+        return $q(function(resolve) {
           var all = [];
 
-          _.each(Object.keys(localStorage), function (id) {
+          _.each(Object.keys(localStorage), function(id) {
             all.push(JSON.parse(storage[id]));
           });
 
@@ -55,8 +55,8 @@ angular.module('stickyNotesApp')
        * Get object by id.
        * @return {promise} resolves with fetched data, reject with error description
        */
-      get: function (id) {
-        return $q(function (resolve) {
+      get: function(id) {
+        return $q(function(resolve) {
           resolve(JSON.parse(storage[id]));
         });
       },
@@ -65,8 +65,8 @@ angular.module('stickyNotesApp')
        * Replace the object under the id.
        * @return {promise} resolves with true, reject with error description
        */
-      set: function (id, note) {
-        return $q(function (resolve) {
+      set: function(id, note) {
+        return $q(function(resolve) {
           storage[id] = JSON.stringify(note);
           resolve(true);
         });
@@ -76,8 +76,8 @@ angular.module('stickyNotesApp')
        * Remove object by id.
        * @return {promise} resolves with true, reject with error description
        */
-      remove: function (id) {
-        return $q(function (resolve) {
+      remove: function(id) {
+        return $q(function(resolve) {
           delete storage[id];
           resolve(true);
         });

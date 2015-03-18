@@ -8,13 +8,13 @@
  * Controller of the stickyNotesApp
  */
 angular.module('stickyNotesApp')
-  .controller('SettingsCtrl', function ($scope, $route, $mdBottomSheet, $mdDialog, $mdToast, notesStorage, notes) {
-    $scope.archiveAll = function () {
+  .controller('SettingsCtrl', function($scope, $route, $mdBottomSheet, $mdDialog, $mdToast, notesStorage, notes) {
+    $scope.archiveAll = function() {
       var currentNotes = notes,
         length = currentNotes.length,
         archived = [];
 
-      for (var i = length - 1; i >= 0;i--) {
+      for (var i = length - 1; i >= 0; i--) {
         // to make sure that we forgot all metadata
         archived.push(angular.copy(currentNotes[i]));
         notesStorage.archive(currentNotes[i].id);
@@ -32,11 +32,11 @@ angular.module('stickyNotesApp')
       });
     };
 
-    $scope.exitSettings = function () {
+    $scope.exitSettings = function() {
       $mdBottomSheet.hide();
     };
 
-    $scope.authors = function (ev) {
+    $scope.authors = function(ev) {
       $mdBottomSheet.hide();
       $mdDialog.show({
         controller: 'AuthorsCtrl',

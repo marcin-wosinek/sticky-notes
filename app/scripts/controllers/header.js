@@ -8,13 +8,13 @@
  * Controller of the stickyNotesApp
  */
 angular.module('stickyNotesApp')
-  .controller('HeaderCtrl', function ($mdBottomSheet, notesStorage) {
-    this.openSettings = function () {
+  .controller('HeaderCtrl', function($mdBottomSheet, notesStorage) {
+    this.openSettings = function() {
       $mdBottomSheet.show({
         templateUrl: 'views/settings.html',
         controller: 'SettingsCtrl',
         resolve: {
-          notes: function () {
+          notes: function() {
             return notesStorage.getCurrent();
           }
         }

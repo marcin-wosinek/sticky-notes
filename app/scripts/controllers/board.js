@@ -9,10 +9,10 @@
  * their interactions.
  */
 angular.module('stickyNotesApp')
-  .controller('BoardCtrl', function ($scope, $mdToast, $location, notesStorage, notes) {
+  .controller('BoardCtrl', function($scope, $mdToast, $location, notesStorage, notes) {
     $scope.notes = notes;
 
-    $scope.style = function (note) {
+    $scope.style = function(note) {
       if (angular.isUndefined(note)) {
         return;
       }
@@ -24,7 +24,7 @@ angular.module('stickyNotesApp')
       };
     };
 
-    $scope.class = function (note) {
+    $scope.class = function(note) {
       var classes = {
         'md-whiteframe-z1': !note._dragged,
         'md-whiteframe-z2': note._dragged
@@ -35,9 +35,9 @@ angular.module('stickyNotesApp')
       return classes;
     };
 
-    $scope.remove = function (notes, note) {
+    $scope.remove = function(notes, note) {
 
-      notesStorage.remove(note.id).then(function () {
+      notesStorage.remove(note.id).then(function() {
         var position = notes.indexOf(note),
           // to make sure no meta data ($$hashKey) will be coppied
           removedNote = angular.copy(note);
@@ -57,8 +57,8 @@ angular.module('stickyNotesApp')
       });
     };
 
-    $scope.archive = function (notes, note) {
-      notesStorage.archive(note.id).then(function () {
+    $scope.archive = function(notes, note) {
+      notesStorage.archive(note.id).then(function() {
         var position = notes.indexOf(note);
 
         if (position > -1) {
@@ -67,18 +67,18 @@ angular.module('stickyNotesApp')
       });
     };
 
-    $scope.drag = function (note) {
+    $scope.drag = function(note) {
       note._dragged = true;
     };
 
-    $scope.drop = function (note) {
+    $scope.drop = function(note) {
       note._dragged = undefined;
 
       // TODO make use of promise api, and notify user when save failed
       return notesStorage.set(note.id, note);
     };
 
-    $scope.move = function (note, x, y, boardSize) {
+    $scope.move = function(note, x, y, boardSize) {
       // TODO migrate to some point math utility
       note.position.x += x;
       note.position.y += y;
@@ -109,7 +109,7 @@ angular.module('stickyNotesApp')
       }
     };
 
-    $scope.noteDblclick = function (noteId) {
+    $scope.noteDblclick = function(noteId) {
       $location.url('/edit/' + noteId);
     };
   });

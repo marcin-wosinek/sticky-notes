@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Service: storage', function () {
+describe('Service: storage', function() {
 
   // load the service's module
   beforeEach(module('stickyNotesApp'));
 
   // instantiate service
   var storage;
-  beforeEach(inject(function (_storage_) {
+  beforeEach(inject(function(_storage_) {
     storage = _storage_;
   }));
 
-  it('should do something', function () {
+  it('should do something', function() {
     expect(!!storage).toBe(true);
   });
 

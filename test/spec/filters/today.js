@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Filter: today', function () {
+describe('Filter: today', function() {
   // load the filter's module
   beforeEach(module('stickyNotesApp'));
   // initialize a new instance of the filter before each test
@@ -9,17 +9,17 @@ describe('Filter: today', function () {
     yesterday = new Date('2015-03-14T00:00:00.000Z'),
     tomorrow = new Date('2015-03-16T00:00:00.000Z');
 
-  beforeEach(function () {
-    module(function ($provide) {
+  beforeEach(function() {
+    module(function($provide) {
       $provide.value('now', now);
     });
   });
 
-  beforeEach(inject(function ($filter) {
+  beforeEach(inject(function($filter) {
     today = $filter('today');
   }));
 
-  it('should return the input if is not array', function () {
+  it('should return the input if is not array', function() {
     var text = 'angularjs',
       object = {lorem: 1},
       number = 42;
@@ -29,13 +29,13 @@ describe('Filter: today', function () {
     expect(today(number)).toBe(number);
   });
 
-  it('should remove other dates form list', function () {
+  it('should remove other dates form list', function() {
     var input = [yesterday, now, tomorrow];
 
     expect(today(input)).toEqual([now]);
   });
 
-  it('should remove other dates form list by key', function () {
+  it('should remove other dates form list by key', function() {
     var input = [{date: yesterday}, {date: now}, {date: tomorrow}];
 
     expect(today(input, 'date')).toEqual([{date: now}]);

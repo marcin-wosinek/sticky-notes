@@ -8,7 +8,7 @@
  * Controller of the stickyNotesApp
  */
 angular.module('stickyNotesApp')
-  .controller('AddCtrl', function ($scope, $location, notesStorage) {
+  .controller('AddCtrl', function($scope, $location, notesStorage) {
     var emptyNote = {
       position: {
         x: 0,
@@ -18,7 +18,7 @@ angular.module('stickyNotesApp')
       description: ''
     };
 
-    function generateColor () {
+    function generateColor() {
       return Math.floor(Math.random() * (255 - 180) + 180);
     }
 
@@ -29,17 +29,17 @@ angular.module('stickyNotesApp')
       blue:generateColor()
     };
 
-    $scope.done = function (note) {
+    $scope.done = function(note) {
       // TODO make use of promise api, and notify user when save failed
       notesStorage.add(note);
       $location.path('/board');
     };
 
-    $scope.reset = function (note) {
+    $scope.reset = function(note) {
       angular.copy(emptyNote, note);
     };
 
-    $scope.cancel = function () {
+    $scope.cancel = function() {
       $location.path('/board');
     };
 

@@ -16,13 +16,13 @@ angular
     'ngTouch',
     'ngMaterial'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/board', {
         templateUrl: 'views/board.html',
         controller: 'BoardCtrl',
         resolve: {
-          notes: function (notesStorage) {
+          notes: function(notesStorage) {
             return notesStorage.getCurrent();
           }
         }
@@ -35,10 +35,10 @@ angular
         templateUrl: 'views/list.html',
         controller: 'ListCtrl',
         resolve: {
-          notes: function (notesStorage) {
+          notes: function(notesStorage) {
             return notesStorage.getCurrent();
           },
-          archived: function (notesStorage) {
+          archived: function(notesStorage) {
             return notesStorage.getArchived();
           }
         }
@@ -47,7 +47,7 @@ angular
         templateUrl: 'views/edit.html',
         controller: 'EditCtrl',
         resolve: {
-          note: function ($route, notesStorage) {
+          note: function($route, notesStorage) {
             return notesStorage.get($route.current.params.id);
           }
         }

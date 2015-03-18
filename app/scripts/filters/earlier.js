@@ -6,8 +6,8 @@
  * @description
  * Filter that pass through only yesterday's dates
  */
-angular.module('stickyNotesApp').filter('earlier', function (now) {
-  return function (input, key) {
+angular.module('stickyNotesApp').filter('earlier', function(now) {
+  return function(input, key) {
     var output = [],
       momentYesterday = moment(now).subtract(1, 'days');
 
@@ -15,13 +15,13 @@ angular.module('stickyNotesApp').filter('earlier', function (now) {
       return input;
     }
 
-    var getDate = key ? function (entity) {
+    var getDate = key ? function(entity) {
       return entity[key];
-    } : function (entity) {
+    } : function(entity) {
       return entity;
     };
 
-    input.forEach(function (item) {
+    input.forEach(function(item) {
       if (momentYesterday.isAfter(getDate(item), 'day')) {
         output.push(item);
       }

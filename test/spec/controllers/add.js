@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: AddCtrl', function () {
+describe('Controller: AddCtrl', function() {
 
   // load the controller's module
   beforeEach(module('stickyNotesApp'));
@@ -9,14 +9,14 @@ describe('Controller: AddCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
     AddCtrl = $controller('AddCtrl', {
       $scope: scope
     });
   }));
 
-  it('should setup $scope', function () {
+  it('should setup $scope', function() {
     expect(true).toEqual(true);
   });
 });
