@@ -1,5 +1,23 @@
-angular.module('stickyNotesApp').directive('drag', function($document, $parse) {
-  'use strict';
+'use strict';
+
+/**
+ * @ngdoc directive
+ * @name stickyNotesApp.directive:snDimensions
+ * @description
+ * # snDrag
+ * Directive that allows element to react on drag&drop gesture of the mouse.
+ *
+ * ## Event binding
+ * There are two attributes to connecto to events:
+ * * onDrop - when the element is released
+ * * onMove - when the element is moved. For those expression, *deltaX* & *deltaY* are available
+ * with move vector values.
+ * ## Usage example
+ * <pre>
+ *   <div sn-drag on-drop="droppedCallback()" on-move="draggedBy(deltaX, deltaY)">
+ * </pre>
+ */
+angular.module('stickyNotesApp').directive('snDrag', function($document, $parse) {
 
   return {
     restrict: 'EA',
