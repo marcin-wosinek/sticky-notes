@@ -9,10 +9,10 @@
  * their interactions.
  */
 angular.module('stickyNotesApp')
-  .controller('BoardCtrl', function($scope, $mdToast, $location, notesStorage, notes) {
-    $scope.notes = notes;
+  .controller('BoardCtrl', function($mdToast, $location, notesStorage, notes) {
+    this.notes = notes;
 
-    $scope.style = function(note) {
+    this.style = function(note) {
       if (angular.isUndefined(note)) {
         return;
       }
@@ -24,7 +24,7 @@ angular.module('stickyNotesApp')
       };
     };
 
-    $scope.class = function(note) {
+    this.class = function(note) {
       var classes = {
         'md-whiteframe-z1': !note._dragged,
         'md-whiteframe-z2': note._dragged
@@ -35,8 +35,7 @@ angular.module('stickyNotesApp')
       return classes;
     };
 
-    $scope.remove = function(notes, note) {
-
+    this.remove = function(notes, note) {
       notesStorage.remove(note.id).then(function() {
         var position = notes.indexOf(note),
           // to make sure no meta data ($$hashKey) will be coppied
@@ -57,7 +56,7 @@ angular.module('stickyNotesApp')
       });
     };
 
-    $scope.archive = function(notes, note) {
+    this.archive = function(notes, note) {
       notesStorage.archive(note.id).then(function() {
         var position = notes.indexOf(note);
 
@@ -67,18 +66,18 @@ angular.module('stickyNotesApp')
       });
     };
 
-    $scope.drag = function(note) {
+    this.drag = function(note) {
       note._dragged = true;
     };
 
-    $scope.drop = function(note) {
+    this.drop = function(note) {
       note._dragged = undefined;
 
       // TODO make use of promise api, and notify user when save failed
       return notesStorage.set(note.id, note);
     };
 
-    $scope.move = function(note, x, y, boardSize) {
+    this.move = function(note, x, y, boardSize) {
       // TODO migrate to some point math utility
       note.position.x += x;
       note.position.y += y;
@@ -109,7 +108,7 @@ angular.module('stickyNotesApp')
       }
     };
 
-    $scope.noteDblclick = function(noteId) {
+    this.noteDblclick = function(noteId) {
       $location.url('/edit/' + noteId);
     };
   });

@@ -6,20 +6,22 @@
   </section>
   <div sn-drag class="note"
       sn-dimensions="note._dimensions"
-      on-drag="drag(note)" on-move="move(note, deltaX, deltaY, boardSize)" on-drop="drop(note)"
-      ng-style="style(note)"
-      ng-dblclick="noteDblclick(note.id)"
-      ng-class="class(note)"
-      ng-repeat="note in notes">
+      on-drag="Board.drag(note)"
+      on-move="Board.move(note, deltaX, deltaY, boardSize)"
+      on-drop="Board.drop(note)"
+      ng-style="Board.style(note)"
+      ng-dblclick="Board.noteDblclick(note.id)"
+      ng-class="Board.class(note)"
+      ng-repeat="note in Board.notes">
     <h3>{{note.title}}</h3>
     {{note.description}}
     <md-button class="edit" ng-href="#/edit/{{note.id}}" aria-label="Edit note {{note.id}}" title="Edit">
       <md-icon md-svg-icon="./images/create3.svg">Edit</md-icon>
     </md-button>
-    <md-button class="remove" ng-click="remove(notes, note)" aria-label="Remove note {{note.id}}" title="Remove">
+    <md-button class="remove" ng-click="Board.remove(Board.notes, note)" aria-label="Remove note {{note.id}}" title="Remove">
       <md-icon md-svg-icon="./images/clear5.svg">Remove</md-icon>
     </md-button>
-    <md-button class="archive" ng-click="archive(notes, note)" aria-label="Archive note {{note.id}}" title="Archive">
+    <md-button class="archive" ng-click="Board.archive(Board.notes, note)" aria-label="Archive note {{note.id}}" title="Archive">
       <md-icon md-svg-icon="./images/done.svg">Done</md-icon>
     </md-button>
   </div>

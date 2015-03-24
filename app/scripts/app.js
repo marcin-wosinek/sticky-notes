@@ -21,6 +21,7 @@ angular
       .when('/board', {
         templateUrl: 'views/board.html',
         controller: 'BoardCtrl',
+        controllerAs: 'Board',
         resolve: {
           notes: function(notesStorage) {
             return notesStorage.getCurrent();
@@ -34,6 +35,7 @@ angular
       .when('/list', {
         templateUrl: 'views/list.html',
         controller: 'ListCtrl',
+        controllerAs: 'List',
         resolve: {
           notes: function(notesStorage) {
             return notesStorage.getCurrent();
