@@ -40,6 +40,7 @@ angular.module('stickyNotesApp')
       $mdBottomSheet.hide();
       $mdDialog.show({
         controller: 'AuthorsCtrl',
+        controllerAs: 'Authors',
         templateUrl: 'views/authors.html',
         targetEvent: ev
       });
