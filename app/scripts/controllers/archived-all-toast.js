@@ -8,8 +8,8 @@
  * Controller of the stickyNotesApp
  */
 angular.module('stickyNotesApp')
-  .controller('ArchivedAllToastCtrl', function($scope, $route, $mdToast, notesStorage, archivedNotes) {
-    $scope.undo = function() {
+  .controller('ArchivedAllToastCtrl', function($route, $mdToast, notesStorage, archivedNotes) {
+    this.undo = function() {
       if (typeof archivedNotes !== Array) {
         archivedNotes = Array.prototype.slice.call(archivedNotes);
       }

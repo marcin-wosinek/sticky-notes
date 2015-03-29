@@ -24,6 +24,7 @@ angular.module('stickyNotesApp')
 
       $mdToast.show({
         controller: 'ArchivedAllToastCtrl',
+        controllerAs: 'ArchivedAllToast',
         templateUrl: 'views/archived-all-toast.html',
         hideDelay: 6000,
         locals: {

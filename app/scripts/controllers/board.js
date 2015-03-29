@@ -47,6 +47,7 @@ angular.module('stickyNotesApp')
 
         $mdToast.show({
           controller: 'RemovedToastCtrl',
+          controllerAs: 'RemovedToast',
           templateUrl: 'views/removed-toast.html',
           hideDelay: 6000,
           locals: {
